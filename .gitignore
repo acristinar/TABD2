@@ -19,3 +19,5 @@ nbproject/project.properties
 nbproject/project.xml
 /FuncionarioWS/build/
 /FuncionarioWS/dist/
+nbproject/jax-ws.xml
+nbproject/jaxws-build.xml
