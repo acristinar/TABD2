@@ -20,7 +20,7 @@ public class FuncionarioService {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "listarFuncionario")
-    public List<Funcionario> consultarFuncionario() throws SQLException{
+    public List<Funcionario> listarFuncionario() throws SQLException{
         FuncionarioDAO dao = new FuncionarioDAO();
         List<Funcionario> listaFuncionario = dao.listarFuncionario();
         
