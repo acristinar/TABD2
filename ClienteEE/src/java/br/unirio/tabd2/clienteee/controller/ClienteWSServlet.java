@@ -35,8 +35,9 @@ public class ClienteWSServlet extends HttpServlet{
             List<Funcionario> listaFuncionario = listarFuncionario();
             request.setAttribute("listaFuncionario", listaFuncionario);
             
+            request.setAttribute("debug", "caralho");
             
-            RequestDispatcher rd = request.getRequestDispatcher("funcionario.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("teste.jsp");
             rd.forward(request, response);        
         }catch(Exception e){
             e.getMessage();

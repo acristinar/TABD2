@@ -13,7 +13,7 @@
         <title>Funcionário Web Service</title>
     </head>
     <body>
-        <a href="/ClienteEE/funcionario">Crud - Funcionários</a>
+        <a href="/ClienteEE/teste">teste</a>
         
     </body>
 </html>
