@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class FuncionarioDAO {
     private static void abrirConexao(){
         try{
             Class.forName("org.postgresql.Driver").newInstance();
-            conn = (Connection) DriverManager.getConnection(dbURL,"amanda","123456");
+            conn = (Connection) DriverManager.getConnection(dbURL,"postgres","123456");
 
         }catch(Exception e){
             e.printStackTrace();
@@ -29,24 +28,28 @@ public class FuncionarioDAO {
     
     }
     
-    public List<Funcionario> listarFuncionario() throws SQLException{
+    public List<Funcionario> listarFuncionario(){
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
-        Funcionario funcionario = null;
+        Funcionario funcionario;
         
         try{
-            abrirConexao();
-            String sql = "SELECT * FROM Funcionario";
-            stmt = conn.prepareStatement(sql);
-            rs = stmt.executeQuery();
-            while(rs.next()){
-                funcionario = new Funcionario();
-                funcionario.setCpf(rs.getInt("cpf"));
-                funcionario.setNome(rs.getString("nome"));
-                funcionario.setTipo(rs.getString("tipo"));
+            //abrirConexao();
+            //String sql = "SELECT * FROM funcionario";
+            //stmt = conn.prepareStatement(sql);
+            //rs = stmt.executeQuery();
+            //while(rs.next()){
+            funcionario = new Funcionario(111111,"Amanda","pessoa");
+            listaFuncionario.add(funcionario);
+            funcionario = new Funcionario(222222,"Daniel","pessoa");
+            listaFuncionario.add(funcionario);
+            funcionario = new Funcionario(666666,"Eddie","zumbi");
+               // funcionario.setCpf(rs.getInt("cpf"));
+               // funcionario.setNome(rs.getString("nome"));
+               // funcionario.setTipo(rs.getString("tipo"));
                 listaFuncionario.add(funcionario);
-            }
+            //}
         }catch(Exception e){
             System.out.println("Erro ao abrir conexão: "+ e.getMessage());       
         }finally{

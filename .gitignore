@@ -19,4 +19,25 @@ nbproject/project.properties
 nbproject/project.xml
 /FuncionarioWS/build/
 /FuncionarioWS/dist/
+<<<<<<< HEAD
 FuncionarioWS/nbproject/private/private.xml
+=======
+/ClienteSE/nbproject/private/
+/ClienteSE/build/
+/ClienteEE/nbproject/private/
+/ClienteEE/build/
+/ClienteEE/dist/
+>>>>>>> 145ad1668dbd63e43d0004ba56c82a305cb3d4e6
+ClienteEE/nbproject/build-impl.xml
+ClienteEE/nbproject/ant-deploy.xml
+ClienteEE/nbproject/jax-ws.xml
+ClienteEE/nbproject/jaxws-build.xml
+ClienteEE/nbproject/project.properties
+ClienteEE/nbproject/genfiles.properties
+ClienteEE/nbproject/project.xml
+FuncionarioWS/nbproject/jax-ws.xml
+FuncionarioWS/nbproject/private/private.properties
+FuncionarioWS/nbproject/project.properties
+FuncionarioWS/nbproject/project.xml
+FuncionarioWS/nbproject/build-impl.xml
+FuncionarioWS/nbproject/genfiles.properties

@@ -1,7 +1,7 @@
-CREATE TABLE "Funcionario"
+CREATE TABLE funcionario
 (
   cpf integer NOT NULL,
   nome text NOT NULL,
   tipo text NOT NULL,
-  CONSTRAINT "Funcionario_pkey" PRIMARY KEY (cpf)
+  CONSTRAINT funcionario_pkey PRIMARY KEY (cpf)
 )
