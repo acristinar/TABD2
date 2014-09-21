@@ -30,7 +30,6 @@ public class ClienteWSServlet extends HttpServlet{
 	}
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        System.out.println("caralho");
         try{
             //List<Funcionario> listaFuncionario = funcionarioService.getFuncionarioServicePort().listarFuncionario();
             List<Funcionario> listaFuncionario = listarFuncionario();
