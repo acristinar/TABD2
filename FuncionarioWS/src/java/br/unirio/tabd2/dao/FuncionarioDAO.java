@@ -14,14 +14,13 @@ import java.util.List;
  * @author Amanda
  */
 public class FuncionarioDAO {
-    private static String dbURL = "jdbc:postrgresql://localhost:5432/SOA";
+    private static String dbURL = "jdbc:postgresql://localhost:5432/postgres";
     private static Connection conn = null;
     
     private static void abrirConexao(){
         try{
             Class.forName("org.postgresql.Driver").newInstance();
-            conn = (Connection) DriverManager.getConnection(dbURL,"postgres","123456");
-
+            conn = (Connection) DriverManager.getConnection(dbURL,"postgres","1234");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -32,24 +31,21 @@ public class FuncionarioDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
-        Funcionario funcionario;
+        Funcionario funcionario = null;
         
         try{
-            //abrirConexao();
-            //String sql = "SELECT * FROM funcionario";
-            //stmt = conn.prepareStatement(sql);
-            //rs = stmt.executeQuery();
-            //while(rs.next()){
-            funcionario = new Funcionario(111111,"Amanda","pessoa");
-            listaFuncionario.add(funcionario);
-            funcionario = new Funcionario(222222,"Daniel","pessoa");
-            listaFuncionario.add(funcionario);
-            funcionario = new Funcionario(666666,"Eddie","zumbi");
-               // funcionario.setCpf(rs.getInt("cpf"));
-               // funcionario.setNome(rs.getString("nome"));
-               // funcionario.setTipo(rs.getString("tipo"));
-                listaFuncionario.add(funcionario);
-            //}
+            abrirConexao();
+            String sql = "SELECT * FROM funcionario";
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+            //funcionario = new Funcionario(111111,"Amanda","pessoa");
+            //listaFuncionario.add(funcionario);
+            //funcionario = new Funcionario(222222,"Daniel","pessoa");
+            //listaFuncionario.add(funcionario);
+            //funcionario = new Funcionario(666666,"Eddie","zumbi");
+                listaFuncionario.add(new Funcionario(rs.getInt("cpf"),rs.getString("nome"),rs.getString("tipo")));
+            }
         }catch(Exception e){
             System.out.println("Erro ao abrir conexão: "+ e.getMessage());       
         }finally{

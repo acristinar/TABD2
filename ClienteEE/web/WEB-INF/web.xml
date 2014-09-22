@@ -15,7 +15,7 @@
   
   <servlet-mapping>
     <servlet-name>ClienteWSServlet</servlet-name>
-    <url-pattern>/teste</url-pattern>
+    <url-pattern>/funcionario</url-pattern>
   </servlet-mapping>
   
 </web-app>

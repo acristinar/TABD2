@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/FuncionarioWS/FuncionarioService?wsdl" uri="wsdl/localhost_8080/FuncionarioWS/FuncionarioService.wsdl"/>
     <system systemId="http://localhost:8080/FuncionarioWS/FuncionarioService?xsd=1" uri="wsdl/localhost_8080/FuncionarioWS/FuncionarioService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/TABD2/FuncionarioService?wsdl" uri="wsdl/localhost_8080/TABD2/FuncionarioService.wsdl"/>
+    <system systemId="http://localhost:8080/TABD2/FuncionarioService?xsd=1" uri="wsdl/localhost_8080/TABD2/FuncionarioService.xsd_1.xsd"/>
 </catalog>
