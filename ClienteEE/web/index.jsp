@@ -10,11 +10,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" rel="stylesheet" href="/ClienteEE/css/estilo.css"/>
         <title>Funcionário Web Service</title>
     </head>
     <body>
-        <a href="/ClienteEE/funcionario">Crud - Funcionários</a>
-        <a href="/ClienteEE/inserir.jsp">Inserir - Funcionários</a>
+        <nav>
+            <ul>
+                <li><a href="/ClienteEE/funcionario">Lista</a></li>
+                <li><a href="/ClienteEE/inserir.jsp">Inserir Funcionário</a></li>
+            </ul>
+        </nav>
         
     </body>
 </html>
