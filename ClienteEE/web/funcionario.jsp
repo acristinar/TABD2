@@ -29,6 +29,7 @@
                         <td><a href="/ClienteEE/visualizarFuncionario?cpf=${funcionario.cpf}">${funcionario.cpf}</a></td>
                         <td>${funcionario.nome}</td>
                         <td>${funcionario.tipo}</td>
+                        <td><a href="/ClienteEE/excluirFuncionario?cpf=${funcionario.cpf}">Excluir</a></td>
                     </tr>
                 </tl:forEach>
                 

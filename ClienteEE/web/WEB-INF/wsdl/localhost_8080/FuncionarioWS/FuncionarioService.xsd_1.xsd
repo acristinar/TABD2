@@ -4,6 +4,10 @@
 
 <xs:element name="consultarFuncionarioResponse" type="tns:consultarFuncionarioResponse" />
 
+<xs:element name="excluirFuncionario" type="tns:excluirFuncionario" />
+
+<xs:element name="excluirFuncionarioResponse" type="tns:excluirFuncionarioResponse" />
+
 <xs:element name="inserirFuncionario" type="tns:inserirFuncionario" />
 
 <xs:element name="inserirFuncionarioResponse" type="tns:inserirFuncionarioResponse" />
@@ -49,6 +53,16 @@
 </xs:complexType>
 
 <xs:complexType name="inserirFuncionarioResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="excluirFuncionario">
+<xs:sequence>
+<xs:element name="cpf" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="excluirFuncionarioResponse">
 <xs:sequence />
 </xs:complexType>
 </xs:schema>

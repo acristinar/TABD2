@@ -50,6 +50,15 @@ public class FuncionarioService {
         
     } 
     
+    @WebMethod(operationName = "excluirFuncionario")
+    public void excluirFuncionario(@WebParam(name="cpf") int cpf) {
+        FuncionarioDAO dao =new FuncionarioDAO();
+        try {
+            dao.excluir(cpf);
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
+    }
     
 }

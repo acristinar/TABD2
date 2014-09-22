@@ -24,7 +24,5 @@
         Tipo: ${funcionario.tipo} 
 	<br>
 	
-	<input type="submit" value="Alterar">
-	<input type="submit" value="Excluir">
     </body>
 </html>

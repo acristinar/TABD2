@@ -33,6 +33,9 @@ public class ClienteWSServlet extends HttpServlet{
             else if(action.equals("/visualizarFuncionario")){ 
                 visualizar(request, response);
             }
+            else if(action.equals("/excluirFuncionario")){ 
+                excluir(request, response);
+            }
         }catch(Exception e){
             //Encaminha para página de erro passando eventual mensagem.
         }
@@ -102,7 +105,7 @@ public class ClienteWSServlet extends HttpServlet{
     }
 
     protected void visualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        //int cpf = 2222; //isso aqui tá hard-coded e vc não tem nenhum funcionário com esse cpf, nunca vai achar nada
+        
         int cpf = Integer.valueOf(request.getParameter("cpf"));
         try{
             Funcionario funcionario = consultarFuncionario(cpf);
@@ -116,9 +119,7 @@ public class ClienteWSServlet extends HttpServlet{
         }
         catch(Exception e){
             
-        }
-        
-        
+        } 
     
     }
     
@@ -126,6 +127,26 @@ public class ClienteWSServlet extends HttpServlet{
         br.unirio.tabd2.webservice.FuncionarioService_Service service = new br.unirio.tabd2.webservice.FuncionarioService_Service();
         br.unirio.tabd2.webservice.FuncionarioService port = service.getFuncionarioServicePort();
         return port.consultarFuncionario(cpf);
+    }
+    
+    protected void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int cpf = Integer.valueOf(request.getParameter("cpf"));
+        
+        try{
+            excluirFuncionario(cpf);
+            	
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+
+        }catch (Exception e) {
+            response.sendRedirect(" " + e.getMessage());
+        }
+    }
+
+    private static void excluirFuncionario(int cpf) {
+        br.unirio.tabd2.webservice.FuncionarioService_Service service = new br.unirio.tabd2.webservice.FuncionarioService_Service();
+        br.unirio.tabd2.webservice.FuncionarioService port = service.getFuncionarioServicePort();
+        port.excluirFuncionario(cpf);
     }
     
     

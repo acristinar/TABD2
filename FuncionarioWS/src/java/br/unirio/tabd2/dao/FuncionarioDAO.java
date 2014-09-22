@@ -98,6 +98,22 @@ public class FuncionarioDAO {
         return funcionario;
     }
     
+    public void excluir(int cpf )throws SQLException {
+        PreparedStatement stmt=null;
+        ResultSet rs = null;
+        try{
+            abrirConexao();
+            String sql="delete from funcionario where cpf="+cpf+";"; 
+            stmt=conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            
+        }catch(SQLException e){
+            System.out.println("Erro na deleção "+e.getMessage());
+        }finally{
+            conn.close();
+        }
+        
+    }
     
     
 }

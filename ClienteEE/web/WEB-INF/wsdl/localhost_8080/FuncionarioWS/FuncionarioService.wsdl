@@ -16,6 +16,12 @@
 <message name="listarFuncionarioResponse">
 <part name="parameters" element="tns:listarFuncionarioResponse" />
 </message>
+<message name="excluirFuncionario">
+<part name="parameters" element="tns:excluirFuncionario" />
+</message>
+<message name="excluirFuncionarioResponse">
+<part name="parameters" element="tns:excluirFuncionarioResponse" />
+</message>
 <message name="inserirFuncionario">
 <part name="parameters" element="tns:inserirFuncionario" />
 </message>
@@ -30,6 +36,10 @@
 <operation name="listarFuncionario">
 <input wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/listarFuncionarioRequest" message="tns:listarFuncionario" />
 <output wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/listarFuncionarioResponse" message="tns:listarFuncionarioResponse" />
+</operation>
+<operation name="excluirFuncionario">
+<input wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/excluirFuncionarioRequest" message="tns:excluirFuncionario" />
+<output wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/excluirFuncionarioResponse" message="tns:excluirFuncionarioResponse" />
 </operation>
 <operation name="inserirFuncionario">
 <input wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/inserirFuncionarioRequest" message="tns:inserirFuncionario" />
@@ -48,6 +58,15 @@
 </output>
 </operation>
 <operation name="listarFuncionario">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="excluirFuncionario">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
