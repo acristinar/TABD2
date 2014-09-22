@@ -23,4 +23,14 @@
     <url-pattern>/cadastrarFuncionario</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+    <servlet-name>ClienteWSServlet</servlet-name>
+    <url-pattern>/consultarFuncionario</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ClienteWSServlet</servlet-name>
+    <url-pattern>/visualizarFuncionario</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

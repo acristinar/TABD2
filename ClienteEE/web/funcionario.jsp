@@ -26,7 +26,7 @@
                 
                 <tl:forEach var="funcionario" items="${listaFuncionario}">
                     <tr>
-                        <td>${funcionario.cpf}</td>
+                        <td><a href="/ClienteEE/visualizarFuncionario?cpf=${funcionario.cpf}">${funcionario.cpf}</a></td>
                         <td>${funcionario.nome}</td>
                         <td>${funcionario.tipo}</td>
                     </tr>

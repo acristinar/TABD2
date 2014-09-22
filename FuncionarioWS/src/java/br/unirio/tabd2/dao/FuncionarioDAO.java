@@ -70,7 +70,32 @@ public class FuncionarioDAO {
         }finally{
             conn.close();
         }
+    }
         
+    public Funcionario consultar(int cpf) throws SQLException{
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Funcionario funcionario = null;
+        
+        try{
+            abrirConexao();
+            String sql = "SELECT * FROM funcionario WHERE cpf = ? ";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, cpf);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                funcionario = new Funcionario();
+                funcionario.setCpf(rs.getInt("cpf"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setTipo(rs.getString("tipo"));
+            }
+        }catch(SQLException e){
+            System.out.println("Erro na consulta "+e.getMessage());
+        }finally{
+            conn.close();
+        }
+    
+        return funcionario;
     }
     
     

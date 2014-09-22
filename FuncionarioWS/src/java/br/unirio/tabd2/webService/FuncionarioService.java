@@ -26,16 +26,30 @@ public class FuncionarioService {
     
     @WebMethod(operationName = "inserirFuncionario")
     public void inserirFuncionario(@WebParam(name="funcionario") Funcionario funcionario) {
-        FuncionarioDAO dao =new FuncionarioDAO();
+        FuncionarioDAO dao = new FuncionarioDAO();
        
         try {
             dao.incluir(funcionario);
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioService.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-       
-        
     }
+
+   @WebMethod(operationName = "consultarFuncionario")
+    public Funcionario consultarFuncionario(@WebParam(name="cpf") int cpf){
+        FuncionarioDAO dao = new FuncionarioDAO();
+        
+        Funcionario funcionario = null;
+        try {
+            funcionario = dao.consultar(cpf);
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return funcionario;
+        
+    } 
+    
+    
     
 }

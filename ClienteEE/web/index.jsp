@@ -18,6 +18,7 @@
             <ul>
                 <li><a href="/ClienteEE/funcionario">Lista</a></li>
                 <li><a href="/ClienteEE/inserir.jsp">Inserir Funcionário</a></li>
+                <li><a href="/ClienteEE/consultarFuncionario">Consultar Funcionário</a></li>
             </ul>
         </nav>
         
