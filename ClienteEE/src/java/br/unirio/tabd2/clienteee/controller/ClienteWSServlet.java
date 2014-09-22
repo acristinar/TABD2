@@ -37,7 +37,7 @@ public class ClienteWSServlet extends HttpServlet{
                 excluir(request, response);
             }
         }catch(Exception e){
-            //Encaminha para página de erro passando eventual mensagem.
+            response.sendRedirect(" " + e.getMessage());
         }
         
     }
@@ -56,7 +56,7 @@ public class ClienteWSServlet extends HttpServlet{
             RequestDispatcher rd = request.getRequestDispatcher("funcionario.jsp");
             rd.forward(request, response);        
         }catch(Exception e){
-            e.getMessage();
+            response.sendRedirect(" " + e.getMessage());
         }
     }
 
@@ -77,7 +77,7 @@ public class ClienteWSServlet extends HttpServlet{
         try{
             inserirFuncionario(funcionario);
             request.setAttribute("funcionario", funcionario);		
-            RequestDispatcher rd = request.getRequestDispatcher("funcionario.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
 
         }catch (Exception e) {
@@ -99,7 +99,7 @@ public class ClienteWSServlet extends HttpServlet{
             
         }
         catch(Exception e){
-            
+            response.sendRedirect(" " + e.getMessage());
         }
     
     }
@@ -118,7 +118,7 @@ public class ClienteWSServlet extends HttpServlet{
             
         }
         catch(Exception e){
-            
+            response.sendRedirect(" " + e.getMessage());
         } 
     
     }
