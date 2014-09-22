@@ -22,10 +22,13 @@ import javax.servlet.http.HttpServletResponse;
 public class ClienteWSServlet extends HttpServlet{
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request,response);
-	}
+        listar(request,response);
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	cadastrar(request,response);
+    }
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try{
             List<Funcionario> listaFuncionario = listarFuncionario();
             request.setAttribute("listaFuncionario", listaFuncionario);
@@ -44,5 +47,31 @@ public class ClienteWSServlet extends HttpServlet{
         return port.listarFuncionario();
     }
     
+    protected void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nome = (String) request.getParameter("nome");
+        Integer cpf = Integer.valueOf(request.getParameter("cpf"));
+        String tipo = (String) request.getParameter("tipo"); 
+        Funcionario funcionario = new Funcionario();
+        funcionario.setCpf(cpf);
+        funcionario.setNome(nome);
+        funcionario.setTipo(tipo);
+        try{
+            inserirFuncionario(funcionario);
+            request.setAttribute("funcionario", funcionario);		
+            RequestDispatcher rd = request.getRequestDispatcher("funcionario.jsp");
+            rd.forward(request, response);
+
+        }catch (Exception e) {
+            response.sendRedirect(" " + e.getMessage());
+        }
+        
+        
+    }
+    
+    private static void inserirFuncionario(br.unirio.tabd2.webservice.Funcionario funcionario) {
+        br.unirio.tabd2.webservice.FuncionarioService_Service service = new br.unirio.tabd2.webservice.FuncionarioService_Service();
+        br.unirio.tabd2.webservice.FuncionarioService port = service.getFuncionarioServicePort();
+        port.inserirFuncionario(funcionario);
+    }
 }
 

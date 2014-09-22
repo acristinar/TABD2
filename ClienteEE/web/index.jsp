@@ -14,6 +14,7 @@
     </head>
     <body>
         <a href="/ClienteEE/funcionario">Crud - Funcionários</a>
+        <a href="/ClienteEE/inserir.jsp">Inserir - Funcionários</a>
         
     </body>
 </html>

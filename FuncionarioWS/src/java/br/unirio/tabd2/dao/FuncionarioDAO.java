@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +15,13 @@ import java.util.List;
  * @author Amanda
  */
 public class FuncionarioDAO {
-    private static String dbURL = "jdbc:postgresql://localhost:5432/postgres";
+    private static String dbURL = "jdbc:postgresql://localhost:5432/SOA";
     private static Connection conn = null;
     
     private static void abrirConexao(){
         try{
             Class.forName("org.postgresql.Driver").newInstance();
-            conn = (Connection) DriverManager.getConnection(dbURL,"postgres","1234");
+            conn = (Connection) DriverManager.getConnection(dbURL,"postgres","123456");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -54,5 +55,24 @@ public class FuncionarioDAO {
         
       return listaFuncionario;  
     }
+    
+    public void incluir(Funcionario funcionario )throws SQLException {
+        PreparedStatement stmt=null;
+        ResultSet rs=null;
+        try{
+            abrirConexao();
+            String sql="insert into funcionario values("+funcionario.getCpf()+",'"+funcionario.getNome()+"','"+funcionario.getTipo()+"')";
+            stmt=conn.prepareStatement(sql);
+            rs=stmt.executeQuery();
+            
+        }catch(SQLException e){
+            System.out.println("Erro na inserção "+e.getMessage());
+        }finally{
+            conn.close();
+        }
+        
+    }
+    
+    
     
 }

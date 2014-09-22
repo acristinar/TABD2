@@ -10,15 +10,34 @@
 <message name="listarFuncionarioResponse">
 <part name="parameters" element="tns:listarFuncionarioResponse" />
 </message>
+<message name="inserirFuncionario">
+<part name="parameters" element="tns:inserirFuncionario" />
+</message>
+<message name="inserirFuncionarioResponse">
+<part name="parameters" element="tns:inserirFuncionarioResponse" />
+</message>
 <portType name="FuncionarioService">
 <operation name="listarFuncionario">
 <input wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/listarFuncionarioRequest" message="tns:listarFuncionario" />
 <output wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/listarFuncionarioResponse" message="tns:listarFuncionarioResponse" />
 </operation>
+<operation name="inserirFuncionario">
+<input wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/inserirFuncionarioRequest" message="tns:inserirFuncionario" />
+<output wsam:Action="http://webService.tabd2.unirio.br/FuncionarioService/inserirFuncionarioResponse" message="tns:inserirFuncionarioResponse" />
+</operation>
 </portType>
 <binding name="FuncionarioServicePortBinding" type="tns:FuncionarioService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
 <operation name="listarFuncionario">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="inserirFuncionario">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

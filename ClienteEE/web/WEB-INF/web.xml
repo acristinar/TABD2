@@ -18,4 +18,9 @@
     <url-pattern>/funcionario</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+    <servlet-name>ClienteWSServlet</servlet-name>
+    <url-pattern>/cadastrarFuncionario</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

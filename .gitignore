@@ -47,3 +47,4 @@ FuncionarioWS/nbproject/genfiles.properties
 /dist/
 nbproject/jaxws-build.xml
 nbproject/jax-ws.xml
+/FuncionarioWS/nbproject/private/
