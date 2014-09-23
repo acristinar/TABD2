@@ -61,4 +61,15 @@ public class FuncionarioService {
     
     }
     
+    @WebMethod(operationName = "alterarFuncionario")
+    public void alterarFuncionario(@WebParam(name="funcionario") Funcionario funcionario) {
+        FuncionarioDAO dao =new FuncionarioDAO();
+        try {
+            dao.alterar(funcionario);
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
 }

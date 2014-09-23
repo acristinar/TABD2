@@ -115,5 +115,39 @@ public class FuncionarioDAO {
         
     }
     
+    public void alterar(Funcionario funcionario )throws SQLException {
+        PreparedStatement stmt=null;
+        ResultSet rs = null;
+        try{
+            if(funcionario.getNome()!=null && funcionario.getTipo() !=null){
+            abrirConexao();
+            String sql="update funcionario set nome='"+funcionario.getNome()+"',tipo='"+funcionario.getTipo()+"' where cpf="+funcionario.getCpf()+";"; 
+            stmt=conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            }
+            else{
+                if(funcionario.getNome()!=null && funcionario.getTipo() ==null){
+                    abrirConexao();
+                    String sql="update funcionario set nome='"+funcionario.getNome()+"' where cpf="+funcionario.getCpf()+";"; 
+                    stmt=conn.prepareStatement(sql);
+                    rs = stmt.executeQuery();
+                }
+                else{
+                    if(funcionario.getNome()==null && funcionario.getTipo() !=null){
+                        abrirConexao();
+                        String sql="update funcionario set tipo='"+funcionario.getTipo()+"' where cpf="+funcionario.getCpf()+";"; 
+                        stmt=conn.prepareStatement(sql);
+                        rs = stmt.executeQuery();
+                    }
+                }
+            }
+        }catch(SQLException e){
+            System.out.println("Erro na deleção "+e.getMessage());
+        }finally{
+            conn.close();
+        }
+        
+    }
+    
     
 }

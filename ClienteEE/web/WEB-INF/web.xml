@@ -25,6 +25,11 @@
   
   <servlet-mapping>
     <servlet-name>ClienteWSServlet</servlet-name>
+    <url-pattern>/inserirFuncionario</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ClienteWSServlet</servlet-name>
     <url-pattern>/consultarFuncionario</url-pattern>
   </servlet-mapping>
   
@@ -36,6 +41,11 @@
   <servlet-mapping>
     <servlet-name>ClienteWSServlet</servlet-name>
     <url-pattern>/excluirFuncionario</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ClienteWSServlet</servlet-name>
+    <url-pattern>/alterarFuncionario</url-pattern>
   </servlet-mapping>
   
 </web-app>

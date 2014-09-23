@@ -13,12 +13,11 @@
         <title>Funcionario - Web Service</title>
     </head>
     <body>
-        <form action="/ClienteEE/cadastrarFuncionario"  method="post">
+        <form action="/ClienteEE/inserirFuncionario"  method="post">
            
-            CPF: <input type="text" name="cpf"> *</br>
-            Nome: <input type="text" name="nome"> *</br>
-            <br/>
-            Tipo: <input type="text" name="tipo"> *<br/> 
+            CPF: <input type="text" name="cpf"> *<br>
+            Nome: <input type="text" name="nome"> *<br>
+            Tipo: <input type="text" name="tipo"> *<br> 
 
             <input type="submit" value="Cadastrar">
 	</form> 

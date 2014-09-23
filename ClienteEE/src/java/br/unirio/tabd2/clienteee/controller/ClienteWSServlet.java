@@ -36,6 +36,12 @@ public class ClienteWSServlet extends HttpServlet{
             else if(action.equals("/excluirFuncionario")){ 
                 excluir(request, response);
             }
+            else if(action.equals("/alterarFuncionario")){ 
+                alterar(request, response);
+            }
+            else if(action.equals("/cadastrarFuncionario")){ 
+                cadastrar(request, response);
+            }
         }catch(Exception e){
             response.sendRedirect(" " + e.getMessage());
         }
@@ -44,7 +50,16 @@ public class ClienteWSServlet extends HttpServlet{
     
     //distribui todas as chamadas POST, copia a switch de cima ...
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	cadastrar(request,response);
+	String action = request.getServletPath();
+        try{
+            if (action.equals("/inserirFuncionario")){ 
+                inserir(request, response);
+            }else if(action.equals("/alterarFuncionario")){ 
+                alterar(request, response);
+            }
+        }catch(Exception e){
+            response.sendRedirect(" " + e.getMessage());
+        }
     }
     
     protected void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -66,7 +81,19 @@ public class ClienteWSServlet extends HttpServlet{
         return port.listarFuncionario();
     }
     
-    protected void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        try{
+            RequestDispatcher rd = request.getRequestDispatcher("inserir.jsp"); 
+            rd.forward(request, response);       
+            
+        }
+        catch(Exception e){
+            response.sendRedirect(" " + e.getMessage());
+        }
+    
+    }
+    
+    protected void inserir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nome = (String) request.getParameter("nome");
         Integer cpf = Integer.valueOf(request.getParameter("cpf"));
         String tipo = (String) request.getParameter("tipo"); 
@@ -147,6 +174,69 @@ public class ClienteWSServlet extends HttpServlet{
         br.unirio.tabd2.webservice.FuncionarioService_Service service = new br.unirio.tabd2.webservice.FuncionarioService_Service();
         br.unirio.tabd2.webservice.FuncionarioService port = service.getFuncionarioServicePort();
         port.excluirFuncionario(cpf);
+    }
+    
+    /*
+    protected void antesAlterar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int cpf = Integer.valueOf(request.getParameter("cpf"));
+        String nome=(String) request.getParameter("nome");
+        String tipo= (String) request.getParameter("tipo");
+        Funcionario funcionario=new Funcionario();
+        funcionario.setCpf(cpf);
+        funcionario.setNome(nome);
+        funcionario.setTipo(tipo);
+        try{
+            request.setAttribute("funcionario", funcionario);
+            	
+            RequestDispatcher rd = request.getRequestDispatcher("alterar.jsp");
+            rd.forward(request, response);
+
+        }catch (Exception e) {
+            response.sendRedirect(" " + e.getMessage());
+        }
+    }
+    */
+    
+    protected void alterar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int cpf = Integer.valueOf(request.getParameter("cpf"));
+        
+        if((request.getParameter("nome") != null) && (request.getParameter("tipo") != null)){
+            String nome=(String) request.getParameter("nome");
+            String tipo= (String) request.getParameter("tipo");
+        
+            Funcionario funcionario=new Funcionario();
+            funcionario.setCpf(cpf);
+            funcionario.setNome(nome);
+            funcionario.setTipo(tipo);
+            try{
+                alterarFuncionario(funcionario);
+
+                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                rd.forward(request, response);
+
+            }catch (Exception e) {
+                response.sendRedirect(" " + e.getMessage()); 
+            }
+        }
+        else{
+            try{
+                Funcionario funcionario = consultarFuncionario(cpf);
+                request.setAttribute("funcionario", funcionario);
+
+                RequestDispatcher rd = request.getRequestDispatcher("alterar.jsp"); 
+                rd.forward(request, response);       
+            }
+            catch(Exception e){
+                response.sendRedirect(" " + e.getMessage());
+            }
+        }
+        
+    }
+
+    private static void alterarFuncionario(br.unirio.tabd2.webservice.Funcionario funcionario) {
+        br.unirio.tabd2.webservice.FuncionarioService_Service service = new br.unirio.tabd2.webservice.FuncionarioService_Service();
+        br.unirio.tabd2.webservice.FuncionarioService port = service.getFuncionarioServicePort();
+        port.alterarFuncionario(funcionario);
     }
     
     

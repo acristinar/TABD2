@@ -1,68 +1,82 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://webService.tabd2.unirio.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webService.tabd2.unirio.br/">
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://webService.tabd2.unirio.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webService.tabd2.unirio.br/">
 
-<xs:element name="consultarFuncionario" type="tns:consultarFuncionario" />
+<xs:element name="alterarFuncionario" type="tns:alterarFuncionario"></xs:element>
 
-<xs:element name="consultarFuncionarioResponse" type="tns:consultarFuncionarioResponse" />
+<xs:element name="alterarFuncionarioResponse" type="tns:alterarFuncionarioResponse"></xs:element>
 
-<xs:element name="excluirFuncionario" type="tns:excluirFuncionario" />
+<xs:element name="consultarFuncionario" type="tns:consultarFuncionario"></xs:element>
 
-<xs:element name="excluirFuncionarioResponse" type="tns:excluirFuncionarioResponse" />
+<xs:element name="consultarFuncionarioResponse" type="tns:consultarFuncionarioResponse"></xs:element>
 
-<xs:element name="inserirFuncionario" type="tns:inserirFuncionario" />
+<xs:element name="excluirFuncionario" type="tns:excluirFuncionario"></xs:element>
 
-<xs:element name="inserirFuncionarioResponse" type="tns:inserirFuncionarioResponse" />
+<xs:element name="excluirFuncionarioResponse" type="tns:excluirFuncionarioResponse"></xs:element>
 
-<xs:element name="listarFuncionario" type="tns:listarFuncionario" />
+<xs:element name="inserirFuncionario" type="tns:inserirFuncionario"></xs:element>
 
-<xs:element name="listarFuncionarioResponse" type="tns:listarFuncionarioResponse" />
+<xs:element name="inserirFuncionarioResponse" type="tns:inserirFuncionarioResponse"></xs:element>
+
+<xs:element name="listarFuncionario" type="tns:listarFuncionario"></xs:element>
+
+<xs:element name="listarFuncionarioResponse" type="tns:listarFuncionarioResponse"></xs:element>
 
 <xs:complexType name="listarFuncionario">
-<xs:sequence />
+<xs:sequence></xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="listarFuncionarioResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:funcionario" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="return" type="tns:funcionario" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="funcionario">
 <xs:sequence>
-<xs:element name="cpf" type="xs:int" />
-<xs:element name="nome" type="xs:string" minOccurs="0" />
-<xs:element name="tipo" type="xs:string" minOccurs="0" />
+<xs:element name="cpf" type="xs:int"></xs:element>
+<xs:element name="nome" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tipo" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="consultarFuncionario">
 <xs:sequence>
-<xs:element name="cpf" type="xs:int" />
+<xs:element name="cpf" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="consultarFuncionarioResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:funcionario" minOccurs="0" />
+<xs:element name="return" type="tns:funcionario" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="inserirFuncionario">
 <xs:sequence>
-<xs:element name="funcionario" type="tns:funcionario" minOccurs="0" />
+<xs:element name="funcionario" type="tns:funcionario" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="inserirFuncionarioResponse">
-<xs:sequence />
+<xs:sequence></xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="excluirFuncionario">
 <xs:sequence>
-<xs:element name="cpf" type="xs:int" />
+<xs:element name="cpf" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="excluirFuncionarioResponse">
-<xs:sequence />
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alterarFuncionario">
+<xs:sequence>
+<xs:element name="funcionario" type="tns:funcionario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alterarFuncionarioResponse">
+<xs:sequence></xs:sequence>
 </xs:complexType>
 </xs:schema>
